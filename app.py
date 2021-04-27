@@ -11,7 +11,7 @@ st.set_page_config(
     page_title="Heart-Healthy",
     page_icon="img/heart_logo.jpg",
     layout="wide",
-    initial_sidebar_state="auto",
+    initial_sidebar_state="expanded",
 )
 st.title("Welcome to Heart Healthy")
 co1, co2 = st.beta_columns([1, 1])
