@@ -7,7 +7,11 @@ Run the Application with the Docker container running in the background with doc
 docker-compose up -d
 ```
 
-Stop the application using
+Tear down the application, either by stopping the application using
 ```sh
 docker-compose down
+```
+or to stop the application, remove the stopped containers and optionally --rmi all / remove all images associated in the docker-compose.yml file
+```sh
+docker-compose down --rmi all
 ```
