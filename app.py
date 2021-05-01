@@ -62,8 +62,8 @@ def main():
         st.markdown(html_temp, unsafe_allow_html=True)
         gender = st.selectbox("Select Gender", options=list(
             gender_choices.keys()), format_func=format_func)
-        age = st.number_input("Age",  value=60)
-        calories = st.number_input("Calories",  value=50)
+        age = st.number_input("Age",  value=50)
+        calories = st.number_input("Calories",  value=500)
         difficulty = st.selectbox("Select Difficulty", options=list(
             difficulty_choices.keys()), format_func=format_func1)
         food_types = st.selectbox("Select Food Type", options=list(
