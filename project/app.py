@@ -13,21 +13,23 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-st.title("Welcome to Heart Healthy")
-co1, co2 = st.beta_columns([1, 1])
+
+co1, col2, col3 = st.beta_columns([3,1, 1])
 with co1:
-    st.subheader("We are a food recommendation engine, whose mission is to provide you with recipes tailored to fit your nutrition needs and preferences.")
-    button_temp = """
-    <div style="padding:1px">
-    <h4 style="color:black;text-align:left">Please complete the form on the left and click on the button below.</h4>
-    </div>
-    """
-    st.markdown(button_temp, unsafe_allow_html=True)
-with co2:
+    st.title("Let us Personalise your Food")
+    
+with col2:
     image = Image.open('images/heart_logo.jpg')
-    st.image(image, use_column_width=False, width=172)
+    st.image(image, use_column_width=False, width=130)
 
+html_temp = """
+        <div style="background:#ca1f1b ;padding:10px">
+        <h4 style="color:white;text-align:center; padding-bottom : 2px">We are a food recommendation engine, whose mission is to provide you with recipes tailored to fit your nutrition needs and preferences.</h4>
+        </div>
+        """
+st.markdown(html_temp, unsafe_allow_html=True)    
 
+st.subheader("Please complete the form on the left and click on the button below.")
 def predict_age(gender,	age, calories,	difficulty,	food_types):
     input = np.array(
         [[gender,	age, calories,	difficulty,	food_types]]).astype(np.float64)
@@ -54,12 +56,6 @@ def main():
     def format_func2(option):
         return food_type_choices[option]
     with st.sidebar:
-        html_temp = """
-        <div style="background:#ca1f1b ;padding:10px">
-        <h4 style="color:white;text-align:center; padding-bottom : 5px">Let us customize your meal</h2>
-        </div>
-        """
-        st.markdown(html_temp, unsafe_allow_html=True)
         gender = st.selectbox("Select Gender", options=list(
             gender_choices.keys()), format_func=format_func)
         age = st.number_input("Age",  value=50)

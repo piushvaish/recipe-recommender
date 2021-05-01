@@ -1,29 +1,13 @@
 Welcome to Recipe Recommender
 
-Project structure is as follows:
-
-.
-├── data
-├── docker-compose.yml
-├── Dockerfile
-├── images
-│   ├── heart-logo.png
-│   └── bookmark.png
-|   └── etc.
-|── model
-├── LICENSE
-├── project
-│   └── app.py
-├── README.md
-└── requirements.txt
 
 
-Build the Docker Image
+Run the Application with the Docker container running in the background with docker-compose.
 ```sh
-docker build -f Dockerfile -t streamlit-demo:latest .
+docker-compose up -d
 ```
 
-Run the Container using
+Stop the application using
 ```sh
-docker run -p 8501:8501 --name demo streamlit-demo
+docker-compose down
 ```
