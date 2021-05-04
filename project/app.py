@@ -3,6 +3,10 @@ import pickle
 import pandas as pd
 import numpy as np
 from PIL import Image
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
 
 model = pickle.load(open('model/model.pkl', 'rb'))
 

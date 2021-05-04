@@ -8,16 +8,11 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-
-# install dependencies
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends gcc
-
-
 # add and install requirements
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt \
+    && rm -rf /root/.cache/pip
 
 
 #################
@@ -39,6 +34,7 @@ RUN groupadd --gid $GROUP_ID user && \
 
 # copy from build image
 COPY --chown=user:user --from=build /opt/venv /opt/venv
+COPY . /usr/src/app
 
 # set working directory
 WORKDIR /usr/src/app
